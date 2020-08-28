@@ -57,3 +57,8 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
+ios/Recipies_app.xcodeproj/project.pbxproj
+ios/Recipies_app.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+ios/Recipies_app.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+ios/Recipies_app.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+ios/Recipies_app.xcodeproj/project.pbxproj
