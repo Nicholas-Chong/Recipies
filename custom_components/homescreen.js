@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, Input } from '@ui-kitten/components';
 import { View, StyleSheet, FlatList } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler'
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Cardtest } from './card'
 import { FlexStyleProps } from '@ui-kitten/components/devsupport';
@@ -40,6 +41,10 @@ export class HomeScreen extends Component {
     });
   };
 
+  onCardClick = () => {
+    this.setState({data: []});
+  };
+
   render() {
     return (
       <View>
@@ -59,7 +64,9 @@ export class HomeScreen extends Component {
                 data={this.state.data}
                 keyExtractor={(item) => item.id}
                 renderItem={({item}) => (
-                  <Cardtest title={item.title} text={item.text} />
+                  <TouchableOpacity onPress={this.onCardClick} >
+                    <Cardtest title={item.title} text={item.text} />
+                  </TouchableOpacity>
                 )}>
               </FlatList>
             </View>
