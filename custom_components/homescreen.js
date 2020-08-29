@@ -42,7 +42,8 @@ export class HomeScreen extends Component {
   };
 
   onCardClick = () => {
-    this.setState({data: []});
+    // this.setState({data: []});
+    this.props.navigation.navigate('Details')
   };
 
   render() {
