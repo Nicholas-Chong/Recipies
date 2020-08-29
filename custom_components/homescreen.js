@@ -48,29 +48,27 @@ export class HomeScreen extends Component {
 
   render() {
     return (
-      <View>
-        <View style={styles.body}>
-          <View style={styles.sectionContainer}>
-            <Text style={styles.sectionTitle}>Find Recipies</Text>
-            <Input 
-              onChangeText={text => this.searchFilterFunction(text)} 
-              status='basic' 
-              placeholder='Search by keyword'
-              style={{marginBottom: 15}} />
-            <View style={{flex: 1}}>
-              <FlatList
-                contentInsetAdjustmentBehavior="automatic"
-                showsVerticalScrollIndicator={false}
-                style={styles.scrollView}
-                data={this.state.data}
-                keyExtractor={(item) => item.id}
-                renderItem={({item}) => (
-                  <TouchableOpacity onPress={this.onCardClick} >
-                    <Cardtest title={item.title} text={item.text} />
-                  </TouchableOpacity>
-                )}>
-              </FlatList>
-            </View>
+      <View style={styles.body}>
+        <View style={styles.sectionContainer}>
+          <Text style={styles.sectionTitle}>Find Recipies</Text>
+          <Input 
+            onChangeText={text => this.searchFilterFunction(text)} 
+            status='basic' 
+            placeholder='Search by keyword'
+            style={{marginBottom: 15}} />
+          <View style={{flex: 1}}>
+            <FlatList
+              contentInsetAdjustmentBehavior="automatic"
+              showsVerticalScrollIndicator={false}
+              style={styles.scrollView}
+              data={this.state.data}
+              keyExtractor={(item) => item.id}
+              renderItem={({item}) => (
+                <TouchableOpacity onPress={this.onCardClick} >
+                  <Cardtest title={item.title} text={item.text} />
+                </TouchableOpacity>
+              )}>
+            </FlatList>
           </View>
         </View>
       </View>
