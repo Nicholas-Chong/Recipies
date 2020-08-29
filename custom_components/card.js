@@ -18,7 +18,7 @@ export const Cardtest = (props) => (
 
 const styles = StyleSheet.create({
   card: {
-    marginTop: 15,
+    marginBottom: 15,
   },
   cardHeader: {
     marginBottom: 20,

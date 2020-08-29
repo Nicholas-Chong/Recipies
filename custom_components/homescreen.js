@@ -3,6 +3,7 @@ import { Text, Input } from '@ui-kitten/components';
 import { View, StyleSheet, FlatList } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Cardtest } from './card'
+import { FlexStyleProps } from '@ui-kitten/components/devsupport';
 
 let cardlist = []
 for (i = 0; i < 10; i++) {
@@ -48,8 +49,9 @@ export class HomeScreen extends Component {
             <Input 
               onChangeText={text => this.searchFilterFunction(text)} 
               status='basic' 
-              placeholder='Search by keyword' />
-            <View style={{height: '80%'}}>
+              placeholder='Search by keyword'
+              style={{marginBottom: 15}} />
+            <View style={{flex: 1}}>
               <FlatList
                 contentInsetAdjustmentBehavior="automatic"
                 showsVerticalScrollIndicator={false}
@@ -80,7 +82,8 @@ const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
-    height: '100%'
+    height: '100%',
+    flex: 1,
   },
   sectionTitle: {
     fontSize: 34,
