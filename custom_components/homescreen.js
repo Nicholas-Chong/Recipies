@@ -43,7 +43,7 @@ export class HomeScreen extends Component {
 
   onCardClick = () => {
     // this.setState({data: []});
-    this.props.navigation.navigate('Details')
+    this.props.navigation.navigate('Details', {foo: 'alsfjlsjfslfjs'})
   };
 
   render() {
@@ -76,7 +76,7 @@ export class HomeScreen extends Component {
   }
 };
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   scrollView: {
     // backgroundColor: Colors.lighter,
     backgroundColor: null
