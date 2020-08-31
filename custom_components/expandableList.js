@@ -8,9 +8,14 @@ export class ExpandableList extends Component {
   anime = {
     height: new Animated.Value(React.Children.count(this.props.children) * 18),
     expanded: true,
-    contentHeight: React.Children.count(this.props.children) * 18
-    // contentHeight: 500
+    contentHeight: React.Children.count(this.props.children) * 18,
+    toggleIconRotation: new Animated.Value(1),
   }
+
+  spinToggle = this.anime.toggleIconRotation.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['0deg', '180deg']
+  })
 
   constructor(props) {
     super(props);
@@ -24,32 +29,31 @@ export class ExpandableList extends Component {
   _getMaxValue() { return this.anime.contentHeight };
   _getMinValue() { return 0 };
 
-  _initContentHeight(event) {
-    // if (this.anime.contentHeight>0) return;
-    this.anime.contentHeight = 500
-
-    // if (this.anime.expanded == false) { 
-    //   this.anime.height = new Animated.Value(this._getMinValue())
-    // } else {
-    //   this.anime.height= new Animated.Value(this._getMaxValue())
-    // }
-    // this.anime.height.setValue(500);
-    // console.log(this.anime, 'l;asjf;lasfja;l')
-  }
-
   toggle() {
     if (this.anime.expanded == false) { 
       Animated.timing(this.anime.height, {
           toValue: this._getMaxValue(),
-          duration: 500,
+          duration: 300,
           useNativeDriver: false,
       }).start();
+
+      Animated.timing(this.anime.toggleIconRotation, {
+        toValue: 1,
+        duration: 300,
+        useNativeDriver: true  // To make use of native driver for performance
+      }).start()
     } else {
       Animated.timing(this.anime.height, {
           toValue: this._getMinValue(),
           duration: 250,
           useNativeDriver: false,
       }).start();
+
+      Animated.timing(this.anime.toggleIconRotation, {
+        toValue: 0,
+        duration: 300,
+        useNativeDriver: true  // To make use of native driver for performance
+      }).start()
     }
     this.anime.expanded = !this.anime.expanded;
     console.log(this.anime)
@@ -57,16 +61,18 @@ export class ExpandableList extends Component {
 
   render() {
     return (
-      <View style={{marginTop: 15, backgroundColor: 'white'}}>
+      <View style={{paddingBottom:15, backgroundColor: 'white'}}>
         <View>
           <TouchableHighlight underlayColor="transparent" onPress={this.toggle}>
-            <View style={{flexDirection: 'row'}}>
-              {/* <Icon
-                style={{height: 40, width: 50}}
-                fill='#8F9BB3'
-                name='arrow-back'
-              /> */}
+            <View style={styles.toggleTouchHighlight}>
               <Text style={styles.listHeader}>{this.props.title}</Text>
+              <Animated.View style={{marginLeft: 'auto', transform: [{ rotate: this.spinToggle }]}}>
+                <Icon
+                    style={{height: 20, width: 50}}
+                    fill='black'
+                    name='arrow-ios-downward-outline'
+                  />
+              </Animated.View>
             </View>
           </TouchableHighlight>
         </View>
@@ -83,8 +89,14 @@ var styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: '600',
     color: Colors.black,
-    width: '50%',
-    padding: 0,
+    // width: '50%',
+    paddingHorizontal: 15,
   },
+  toggleTouchHighlight: {
+    flexDirection: 'row', 
+    paddingVertical:15, 
+    backgroundColor: 'skyblue',
+    borderRadius: 5
+  }
 
 });
