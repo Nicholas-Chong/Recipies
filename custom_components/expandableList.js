@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, Icon, TopNavigation } from '@ui-kitten/components';
 import { View, StyleSheet, Animated, TouchableHighlight } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { FlatList } from 'react-native-gesture-handler';
 // import { styles } from './homescreen';
 
 export class ExpandableList extends Component {
@@ -42,7 +43,7 @@ export class ExpandableList extends Component {
     } else {
       Animated.timing(this.anime.height, {
           toValue: this._getMinValue(),
-          duration: 250,
+          duration: 300,
           useNativeDriver: false,
       }).start();
 
@@ -53,7 +54,7 @@ export class ExpandableList extends Component {
       }).start()
     }
     this.anime.expanded = !this.anime.expanded;
-    console.log(this.anime)
+    // console.log(this.anime)
   }
 
   render() {
@@ -77,9 +78,11 @@ export class ExpandableList extends Component {
             </View>
           </TouchableHighlight>
         </View>
-        <Animated.View style={[styles.content, { height: this.anime.height}]}>
-            {this.props.children}
-        </Animated.View>
+        <Animated.FlatList
+          style={[styles.content, {height: this.anime.height}]}
+          data={this.props.children}
+          renderItem={(item) => item.item}>
+        </Animated.FlatList>
       </View>
     );
   }
@@ -99,5 +102,4 @@ var styles = StyleSheet.create({
     backgroundColor: 'skyblue',
     borderRadius: 5
   }
-
 });
