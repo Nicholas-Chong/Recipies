@@ -10,7 +10,7 @@ let cardlist = []
 for (i = 0; i < 10; i++) {
   titles = 'Header ' + String(i)
   texts = ';akdf;lsajflasjkflsjflsjflsjflskjf;asldkfjnidsffoahfa;jf;ajf'
-  cardlist.push({title: titles, text: texts})
+  cardlist.push({title: titles, text: texts, id: String(i)})
 }
 
 export class HomeScreen extends Component {
