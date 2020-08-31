@@ -20,10 +20,7 @@ export class ExpandableList extends Component {
   constructor(props) {
     super(props);
 
-    // this._initContentHeight = this._initContentHeight.bind(this);
     this.toggle = this.toggle.bind(this);
-
-    // this.anime.expanded = props.expanded;
   }
 
   _getMaxValue() { return this.anime.contentHeight };
@@ -66,7 +63,11 @@ export class ExpandableList extends Component {
           <TouchableHighlight underlayColor="transparent" onPress={this.toggle}>
             <View style={styles.toggleTouchHighlight}>
               <Text style={styles.listHeader}>{this.props.title}</Text>
-              <Animated.View style={{marginLeft: 'auto', transform: [{ rotate: this.spinToggle }]}}>
+              <Animated.View 
+                style={{
+                  marginLeft: 'auto', 
+                  transform: [{ rotate: this.spinToggle }]
+                }}>
                 <Icon
                     style={{height: 20, width: 50}}
                     fill='black'
@@ -76,7 +77,7 @@ export class ExpandableList extends Component {
             </View>
           </TouchableHighlight>
         </View>
-        <Animated.View style={[styles.content, { height: this.anime.height}]}  >
+        <Animated.View style={[styles.content, { height: this.anime.height}]}>
             {this.props.children}
         </Animated.View>
       </View>
