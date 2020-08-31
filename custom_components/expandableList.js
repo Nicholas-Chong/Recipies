@@ -31,25 +31,25 @@ export class ExpandableList extends Component {
     if (this.anime.expanded == false) { 
       Animated.timing(this.anime.height, {
           toValue: this._getMaxValue(),
-          duration: 300,
+          duration: 200,
           useNativeDriver: false,
       }).start();
 
       Animated.timing(this.anime.toggleIconRotation, {
         toValue: 1,
-        duration: 300,
+        duration: 200,
         useNativeDriver: true  // To make use of native driver for performance
       }).start()
     } else {
       Animated.timing(this.anime.height, {
           toValue: this._getMinValue(),
-          duration: 300,
+          duration: 200,
           useNativeDriver: false,
       }).start();
 
       Animated.timing(this.anime.toggleIconRotation, {
         toValue: 0,
-        duration: 300,
+        duration: 200,
         useNativeDriver: true  // To make use of native driver for performance
       }).start()
     }
@@ -81,6 +81,7 @@ export class ExpandableList extends Component {
         <Animated.FlatList
           style={[styles.content, {height: this.anime.height}]}
           data={this.props.children}
+          keyExtractor={(item) => item.id}
           renderItem={(item) => item.item}>
         </Animated.FlatList>
       </View>
