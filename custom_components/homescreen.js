@@ -4,7 +4,7 @@ import { View, StyleSheet, FlatList } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Cardtest } from './card'
-import { FlexStyleProps } from '@ui-kitten/components/devsupport';
+import { SelectQuery } from './database'
 
 let cardlist = []
 for (i = 0; i < 10; i++) {
@@ -19,15 +19,14 @@ export class HomeScreen extends Component {
 
     this.state = {
       loading: false,
-      data: cardlist,
+      data: [],
       error: null,
+      datacopy: []
     };
-
-    this.datacopy = cardlist;
   }
 
   searchFilterFunction = text => {
-    copy = [...this.datacopy]
+    copy = [...this.state.datacopy]
     if (text != '') {
       var newData = copy.filter(item => {
         return item.title.includes(text)
@@ -35,44 +34,51 @@ export class HomeScreen extends Component {
     } else {
       var newData = copy
     }
-
+    
     this.setState({
       data: newData,
     });
   };
 
   onCardClick = () => {
-    // this.setState({data: []});
     this.props.navigation.navigate('Details', {foo: 'alsfjlsjfslfjs'})
   };
 
+  async componentDidMount() {
+    await SelectQuery().then(dt => this.setState({data: dt, datacopy: dt}))
+  }
+
   render() {
-    return (
-      <View style={styles.body}>
-        <View style={styles.sectionContainer}>
-          <Text style={styles.sectionTitle}>Find Recipies</Text>
-          <Input 
-            onChangeText={text => this.searchFilterFunction(text)} 
-            status='basic' 
-            placeholder='Search by keyword'
-            style={{marginBottom: 15}} />
-          <View style={{flex: 1}}>
-            <FlatList
-              contentInsetAdjustmentBehavior="automatic"
-              showsVerticalScrollIndicator={false}
-              style={styles.scrollView}
-              data={this.state.data}
-              keyExtractor={(item) => item.id}
-              renderItem={({item}) => (
-                <TouchableOpacity onPress={this.onCardClick} >
-                  <Cardtest title={item.title} text={item.text} />
-                </TouchableOpacity>
-              )}>
-            </FlatList>
+    console.log(this.state.data, 'RENDER')
+    
+    if (this.state.loading == false) {
+      return (
+        <View style={styles.body}>
+          <View style={styles.sectionContainer}>
+            <Text style={styles.sectionTitle}>Find Recipies</Text>
+            <Input 
+              onChangeText={text => this.searchFilterFunction(text)} 
+              status='basic' 
+              placeholder='Search by keyword'
+              style={{marginBottom: 15}} />
+            <View style={{flex: 1}}>
+              <FlatList
+                contentInsetAdjustmentBehavior="automatic"
+                showsVerticalScrollIndicator={false}
+                style={styles.scrollView}
+                data={this.state.data}
+                keyExtractor={(item) => item.id}
+                renderItem={({item}) => (
+                  <TouchableOpacity onPress={this.onCardClick} >
+                    <Cardtest title={item.title} text={item.description} />
+                  </TouchableOpacity>
+                )}>
+              </FlatList>
+            </View>
           </View>
         </View>
-      </View>
-    )
+      )
+    }
   }
 };
 
