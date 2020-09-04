@@ -2,14 +2,12 @@ import React, { Component } from 'react';
 import { Text, Icon, TopNavigation } from '@ui-kitten/components';
 import { View, StyleSheet, Animated, TouchableHighlight } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { FlatList } from 'react-native-gesture-handler';
-// import { styles } from './homescreen';
 
 export class ExpandableList extends Component {
   anime = {
-    height: new Animated.Value(React.Children.count(this.props.children) * 18),
+    height: new Animated.Value(React.Children.count(this.props.children) * 85),
     expanded: true,
-    contentHeight: React.Children.count(this.props.children) * 18,
+    contentHeight: React.Children.count(this.props.children) * 85,
     toggleIconRotation: new Animated.Value(1),
   }
 
@@ -59,8 +57,8 @@ export class ExpandableList extends Component {
 
   render() {
     return (
-      <View style={{paddingBottom:15, backgroundColor: 'white'}}>
-        <View>
+      <View style={{backgroundColor: 'white'}}>
+        <View style={{marginBottom: 15}}>
           <TouchableHighlight underlayColor="transparent" onPress={this.toggle}>
             <View style={styles.toggleTouchHighlight}>
               <Text style={styles.listHeader}>{this.props.title}</Text>
@@ -80,9 +78,9 @@ export class ExpandableList extends Component {
         </View>
         <Animated.FlatList
           style={[styles.content, {height: this.anime.height}]}
-          data={this.props.children}
+          data={[this.props.children]}
           keyExtractor={(item) => item.id}
-          renderItem={(item) => item.item}>
+          renderItem={(item) => item.item }>
         </Animated.FlatList>
       </View>
     );
