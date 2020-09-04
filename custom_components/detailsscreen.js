@@ -5,6 +5,7 @@ import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { QuickInfoCard } from './quickInfoCard'
 import { ExpandableList } from './expandableList'
 import { ScrollView } from 'react-native-gesture-handler';
+import { StepCard } from './stepcard'
 
 export class DetailsScreen extends Component {
   constructor(props) {
@@ -27,7 +28,18 @@ export class DetailsScreen extends Component {
     return (BackButton)
   };
 
+  generateStepCards(steps) {
+    steps = JSON.parse(steps)
+    cards = []
+    for (i in steps) {
+      card = <StepCard stepNum={i} stepInst={steps[i]}></StepCard>
+      cards.push(card)
+    }
+    return cards
+  }
+
   render() {
+    let itemData = this.props.route.params.itemData
     return (
       <View style={{flex:1}}>
       <View style={styles.body}>
@@ -35,53 +47,26 @@ export class DetailsScreen extends Component {
             accessoryLeft={this.renderBackButton(this)}
             title='Go Back'/>
         <ScrollView 
-          contentContainerStyle={{flexGrow:1}}
-          // onContentSizeChange={(contentHeight) => console.log(contentHeight)}
-          >
+          contentContainerStyle={{flexGrow:1}}>
         <View style={styles.sectionContainer}>
           <Text style={styles.sectionTitle}>Recipie Title</Text>
           <View style={styles.sectionQuickInfo}>
-            <QuickInfoCard header='Servings' text='4'/>
-            <QuickInfoCard header='Prep Time' text='25m'/>
-            <QuickInfoCard header='Cook Time' text='50m'/>
+            <QuickInfoCard header='Servings' text={itemData.servings}/>
+            <QuickInfoCard header='Prep Time' text={itemData.prep_time}/>
+            <QuickInfoCard header='Cook Time' text={itemData.cook_time}/>
           </View>
           <Divider style={{marginBottom: 15, borderBottomWidth: 0.25}}/>
           <Text style={styles.sectionSubheader}>Description</Text>
           <Text style={{marginBottom: 15}}>
-            Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.
+            {itemData.description}
           </Text>
           <Divider style={{marginBottom: 15, borderBottomWidth: 0.25}}/>
           <ExpandableList title='Steps'>
-            <Text>Hello, this is third line.</Text>
-            <Text>Hello, this is third line.</Text>
-            <Text>Hello, this is first line.</Text>
-            <Text>Hello, this is second line.</Text>
-            <Text>Hello, this is third line.</Text>
-            <Text>Hello, this is first line.</Text>
-            <Text>Hello, this is second line.</Text>
-            <Text>Hello, this is third line.</Text>
-            <Text>Hello, this is first line.</Text>
-            <Text>Hello, this is second line.</Text>
-            <Text>Hello, this is third line.</Text>
+            {this.generateStepCards(itemData.steps)}
           </ExpandableList>
-          <ExpandableList styles={{marginTop: 15}} title='Next Section'>
-            <Text>Hello, this is third line.</Text>
-            <Text>Hello, this is third line.</Text>
-            <Text>Hello, this is first line.</Text>
-            <Text>Hello, this is second line.</Text>
-            <Text>Hello, this is third line.</Text>
-            <Text>Hello, this is first line.</Text>
-            <Text>Hello, this is second line.</Text>
-            <Text>Hello, this is third line.</Text>
-            <Text>Hello, this is first line.</Text>
-            <Text>Hello, this is second line.</Text>
-            <Text>Hello, this is third line.</Text>
-          </ExpandableList>
-          <ExpandableList styles={{marginTop: 15}} title='Next Section'>
-            <Text>Hello, this is third line.</Text>
-            <Text>Hello, this is third line.</Text>
-            <Text>Hello, this is first line.</Text>
-            <Text>Hello, this is second line.</Text>
+          <ExpandableList  title='Ingredients' data={this.data}>
+          <StepCard stepNum='01' stepInst="Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book"></StepCard>
+          {this.test}
           </ExpandableList>
         </View>
         </ScrollView>
