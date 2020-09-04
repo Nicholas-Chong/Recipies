@@ -5,6 +5,8 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Cardtest } from './card'
 import { SelectQuery } from './database'
+import { createStackNavigator } from '@react-navigation/stack';
+import { DetailsScreen } from './detailsscreen';
 
 // let cardlist = []
 // for (i = 0; i < 10; i++) {
@@ -15,6 +17,19 @@ import { SelectQuery } from './database'
 
 // let test = new ArrayBuffer(cardlist)
 // console.log(test)
+
+Stack = createStackNavigator()
+
+export class HomeScreenNavigator extends Component {
+  render() {
+    return (
+      <Stack.Navigator screenOptions={{headerShown: false, initialRouteName: 'Home'}}>
+        <Stack.Screen name='Home' component={HomeScreen}></Stack.Screen>
+        <Stack.Screen name='Details' component={DetailsScreen}></Stack.Screen>
+      </Stack.Navigator>
+    )
+  }
+}
 
 export class HomeScreen extends Component {
   constructor(props) {
