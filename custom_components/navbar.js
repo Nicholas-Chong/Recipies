@@ -3,7 +3,7 @@ import { BottomNavigation, BottomNavigationTab, Icon } from '@ui-kitten/componen
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { HomeScreenNavigator } from './homescreen'
-import { OrdersScreen } from './secondscreen'
+import { AddRecipieScreen } from './secondscreen'
 import { DetailsScreen } from './detailsscreen'
 import { ExploreScreen } from './explorescreen'
 
@@ -45,7 +45,7 @@ const Nav = ({navigation, state}) => {
 const TabNavigator = () => (
   <Navigator tabBar={props => <Nav {...props} />}>
     <Screen name='Home' component={HomeScreenNavigator}/>
-    <Screen name='Orders' component={OrdersScreen}/>
+    <Screen name='Orders' component={AddRecipieScreen}/>
     <Screen name='Explore' component={ExploreScreen}/>
 
     <Screen name='Details' component={DetailsScreen}/>
