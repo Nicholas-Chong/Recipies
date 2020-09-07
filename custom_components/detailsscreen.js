@@ -31,8 +31,8 @@ export class DetailsScreen extends Component {
   generateStepCards(steps) {
     steps = JSON.parse(steps)
     cards = []
-    for (i in steps) {
-      card = <StepCard stepNum={i} stepInst={steps[i]}></StepCard>
+    for (i of steps) {
+      card = <StepCard stepNum={i.stepNum} stepInst={i.inst}></StepCard>
       cards.push(card)
     }
     return cards
@@ -49,7 +49,7 @@ export class DetailsScreen extends Component {
         <ScrollView 
           contentContainerStyle={{flexGrow:1}}>
         <View style={styles.sectionContainer}>
-          <Text style={styles.sectionTitle}>Recipie Title</Text>
+          <Text style={styles.sectionTitle}>{itemData.title}</Text>
           <View style={styles.sectionQuickInfo}>
             <QuickInfoCard header='Servings' text={itemData.servings}/>
             <QuickInfoCard header='Prep Time' text={itemData.prep_time}/>
