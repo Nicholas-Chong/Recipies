@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, Input } from '@ui-kitten/components';
 import { View, StyleSheet, FlatList } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler'
+import { TouchableOpacity, TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Cardtest } from './card'
 import { SelectQuery } from './database'
@@ -62,9 +62,13 @@ export class HomeScreen extends Component {
 
   async componentDidMount() {
     await SelectQuery().then(dt => this.setState({data: dt, datacopy: dt}))
+
+    this._update = this.props.navigation.addListener('focus', async () => {
+      await SelectQuery().then(dt => this.setState({data: dt, datacopy: dt}))
+    });
   }
 
-  render() {    
+  render() {
     return (
       <View style={styles.body}>
         <View style={styles.sectionContainer}>
@@ -82,9 +86,9 @@ export class HomeScreen extends Component {
               data={this.state.data}
               keyExtractor={(item) => item.id.toString()}
               renderItem={({item}) => (
-                <TouchableOpacity key={item.id} onPress={() => {this.onCardClick(item)}} >
+                <TouchableWithoutFeedback key={item.id} onPress={() => {this.onCardClick(item)}} >
                   <Cardtest title={item.title} text={item.description} />
-                </TouchableOpacity>
+                </TouchableWithoutFeedback>
               )}>
             </FlatList>
           </View>
