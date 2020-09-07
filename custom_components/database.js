@@ -25,3 +25,17 @@ export async function SelectQuery(){
   }
   return results
 }
+
+export async function InsertNewRecipie(params){
+  let paramslist = []
+  for (i in params) {
+    if (typeof(params[i]) == typeof([])) {
+      paramslist.push(JSON.stringify(params[i]))
+    } else {
+      paramslist.push(params[i])
+    }
+  }
+  console.log(paramslist)
+  let insertNew = await ExecuteQuery("INSERT INTO saved_recipies ('title', 'description', 'servings', 'prep_time', 'cook_time', 'ingredients', 'steps') VALUES (?, ?, ?, ?, ?, ?, ?)", paramslist);
+  console.log(insertNew)
+}
