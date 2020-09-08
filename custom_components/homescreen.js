@@ -72,7 +72,7 @@ export class HomeScreen extends Component {
     return (
       <View style={styles.body}>
         <View style={styles.sectionContainer}>
-          <Text style={styles.sectionTitle}>Find Recipies</Text>
+          <Text style={styles.sectionTitle}>Your Recipies</Text>
           <Input 
             onChangeText={text => this.searchFilterFunction(text)} 
             status='basic' 

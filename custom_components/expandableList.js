@@ -98,7 +98,7 @@ var styles = StyleSheet.create({
   toggleTouchHighlight: {
     flexDirection: 'row', 
     paddingVertical:15, 
-    backgroundColor: 'skyblue',
+    backgroundColor: '#35E3F4',
     borderRadius: 5
   }
 });

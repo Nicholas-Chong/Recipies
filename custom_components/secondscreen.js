@@ -75,7 +75,7 @@ export class AddRecipieScreen extends Component {
     return (
       <View style={{flexDirection: 'row', height: 50}}>
         <View 
-          style={{width: 40, height: 40, borderRadius: 5, zIndex: 10, backgroundColor: 'skyblue', justifyContent: "center",alignItems: "center", marginRight: 10}}>
+          style={{width: 40, height: 40, borderRadius: 5, zIndex: 10, backgroundColor: '#35E3F4', justifyContent: "center",alignItems: "center", marginRight: 10}}>
           <Text style={{fontSize: 20}}>{props.stepNum}</Text>
         </View>
         
@@ -150,21 +150,24 @@ export class AddRecipieScreen extends Component {
               <Text style={styles.sectionSubheader}>Servings</Text> 
               <Input 
                 placeholder='How many servings?'
-                onEndEditing={(input) => this.state.servings = input.nativeEvent.text} />
+                onEndEditing={(input) => this.state.servings = input.nativeEvent.text} 
+                keyboardType='numeric' />
             </View>
             <View style={styles.inputSection}>
               <Text style={styles.sectionSubheader}>Prep Time</Text> 
               <Input 
                 onFocus={() => this.avoidKeyboard(0)} 
                 placeholder='How long does it take to prep?'
-                onEndEditing={(input) => this.state.prep_time = input.nativeEvent.text} />
+                onEndEditing={(input) => this.state.prep_time = input.nativeEvent.text} 
+                keyboardType='numeric' />
             </View>
             <View style={styles.inputSection}>
               <Text style={styles.sectionSubheader}>Cook Time</Text> 
               <Input 
                 onFocus={() => this.avoidKeyboard(50)} 
                 placeholder='How long does it take to cook?' 
-                onEndEditing={(input) => this.state.cook_time = input.nativeEvent.text} />
+                onEndEditing={(input) => this.state.cook_time = input.nativeEvent.text} 
+                keyboardType='numeric' />
             </View>
             <View ref={(component) => { this.stepsList = component; }} 
               style={styles.inputSection} >
@@ -205,7 +208,7 @@ export class AddRecipieScreen extends Component {
                 </Button>
               </View>
               <Button 
-                  status='danger' 
+                  status='success' 
                   style={{marginTop: 15}}
                   onPress={() => InsertNewRecipie(this.state)}>
                   Done
