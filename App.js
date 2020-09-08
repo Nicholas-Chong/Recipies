@@ -12,11 +12,12 @@ import { ApplicationProvider, IconRegistry } from '@ui-kitten/components';
 import * as eva from '@eva-design/eva';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
 import { AppNavigator } from './custom_components/navbar'
+import { default as theme } from './custom-theme.json';
 
 const App: () => React$Node = () => {
   return (
     <>
-      <ApplicationProvider {...eva} theme={eva.light}>
+      <ApplicationProvider {...eva} theme={{...eva.light, ...theme}}>
         <IconRegistry icons={EvaIconsPack} />
         <StatusBar barStyle="dark-content" />
         <SafeAreaView>
