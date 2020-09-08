@@ -16,13 +16,15 @@ This project aims to make access to quick and simple (and tasty) recipies easier
 </div> -->
 
 <table>
+    <tr></tr>
     <tr>
-        <td align='center'><img src='readme_imgs/HomeScreen.png' width='40%'></td>
-        <td align='center'><img src='readme_imgs/DetailsScreen.png' width='40%'></td>
+        <td align='center'><img src='readme_imgs/HomeScreen.png' width='50%'></td>
+        <td align='center'><img src='readme_imgs/DetailsScreen.png' width='50%'></td>
     </tr>
+    <tr></tr>
     <tr>
-        <td align='center'><img src='readme_imgs/AddRecipie1.png' width='40%'></td>
-        <td align='center'><img src='readme_imgs/AddRecipie2.png' width='40%'></td>
+        <td align='center'><img src='readme_imgs/AddRecipie1.png' width='50%'></td>
+        <td align='center'><img src='readme_imgs/AddRecipie2.png' width='50%'></td>
     </tr>
 </table>
 
