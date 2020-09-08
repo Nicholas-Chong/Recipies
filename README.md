@@ -8,12 +8,23 @@ This project aims to make access to quick and simple (and tasty) recipies easier
 
 ## Application Views
 
-<div align='center'>
+<!-- <div align='center'>
 <kbd><img src='readme_imgs/HomeScreen.png' width='40%'></kbd>
 <kbd><img src='readme_imgs/DetailsScreen.png' width='40%'></kbd>
 <kbd><img src='readme_imgs/AddRecipie1.png' width='40%'></kbd>
 <kbd><img src='readme_imgs/AddRecipie2.png' width='40%'></kbd>
-</div>
+</div> -->
+
+<table>
+    <tr>
+        <td align='center'><img src='readme_imgs/HomeScreen.png' width='40%'></td>
+        <td align='center'><img src='readme_imgs/DetailsScreen.png' width='40%'></td>
+    </tr>
+    <tr>
+        <td align='center'><img src='readme_imgs/AddRecipie1.png' width='40%'></td>
+        <td align='center'><img src='readme_imgs/AddRecipie2.png' width='40%'></td>
+    </tr>
+</table>
 
 ## Colour Scheme Creation
 <div align='center'>
