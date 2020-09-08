@@ -8,13 +8,6 @@ This project aims to make access to quick and simple (and tasty) recipies easier
 
 ## Application Views
 
-<!-- <div align='center'>
-<kbd><img src='readme_imgs/HomeScreen.png' width='40%'></kbd>
-<kbd><img src='readme_imgs/DetailsScreen.png' width='40%'></kbd>
-<kbd><img src='readme_imgs/AddRecipie1.png' width='40%'></kbd>
-<kbd><img src='readme_imgs/AddRecipie2.png' width='40%'></kbd>
-</div> -->
-
 <table>
     <tr></tr>
     <tr>
