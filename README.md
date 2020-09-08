@@ -7,13 +7,16 @@ This project aims to make access to quick and simple (and tasty) recipies easier
 * Currently developing an API with a database from which the app will pull recipies from. Eventually, this will be integrated into an explore page.
 
 ## Application Views
-![](readme_imgs/HomeScreen.png)
-![](readme_imgs/DetailsScreen.png)
-![](readme_imgs/AddRecipie1.png)
-![](readme_imgs/AddRecipie2.png)
+
+<img src='readme_imgs/HomeScreen.png' width='40%'>
+<img src='readme_imgs/DetailsScreen.png' width='40%'>
+<img src='readme_imgs/AddRecipie1.png' width='40%'>
+<img src='readme_imgs/AddRecipie2.png' width='40%'>
+<img src='readme_imgs/HomeScreen.png' width='40%'>
 
 ## Colour Scheme Creation
-![](readme_imgs/ColourScheme.png)
+
+<img src='readme_imgs/ColourScheme.png' width='75%'>
 
 ## Technologies & Packages
 
