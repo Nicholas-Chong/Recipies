@@ -8,15 +8,15 @@ This project aims to make access to quick and simple (and tasty) recipies easier
 
 ## Application Views
 
-<img src='readme_imgs/HomeScreen.png' width='40%'>
-<img src='readme_imgs/DetailsScreen.png' width='40%'>
-<img src='readme_imgs/AddRecipie1.png' width='40%'>
-<img src='readme_imgs/AddRecipie2.png' width='40%'>
-<img src='readme_imgs/HomeScreen.png' width='40%'>
+<kbd><img src='readme_imgs/HomeScreen.png' width='40%'></kbd>
+<kbd><img src='readme_imgs/DetailsScreen.png' width='40%'></kbd>
+<kbd><img src='readme_imgs/AddRecipie1.png' width='40%'></kbd>
+<kbd><img src='readme_imgs/AddRecipie2.png' width='40%'></kbd>
+<kbd><img src='readme_imgs/HomeScreen.png' width='40%'></kbd>
 
 ## Colour Scheme Creation
 
-<img src='readme_imgs/ColourScheme.png' width='75%'>
+<kbd><img src='readme_imgs/ColourScheme.png' width='75%'></kbd>
 
 ## Technologies & Packages
 
