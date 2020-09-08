@@ -6,7 +6,6 @@ export class IconSimpleUsageShowcase extends Component {
   render() {
     return (
       <Icon
-        // style={styles.icon}
         fill='#8F9BB3'
         name='star'
       />
@@ -21,7 +20,6 @@ export class ExploreScreen extends Component {
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'skyblue', height: '100%' }}>
         <Text category='h1'>Explore</Text>
         <View>{IconSimpleUsageShowcase}</View>
-        {/* <Button title="Go back" onPress={() => this.props.navigation.goBack()} /> */}
       </View>
     )
   }

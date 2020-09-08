@@ -1,7 +1,6 @@
 import React from 'react';
-// import { Card } from '@ui-kitten/components';
 import { Text } from '@ui-kitten/components';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 
 export const StepCard = (props) => {
   return (

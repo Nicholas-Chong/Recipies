@@ -1,22 +1,12 @@
 import React, { Component } from 'react';
 import { Text, Input } from '@ui-kitten/components';
 import { View, StyleSheet, FlatList } from 'react-native';
-import { TouchableOpacity, TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Cardtest } from './card'
 import { SelectQuery } from './database'
 import { createStackNavigator } from '@react-navigation/stack';
 import { DetailsScreen } from './detailsscreen';
-
-// let cardlist = []
-// for (i = 0; i < 10; i++) {
-//   titles = 'Header ' + String(i)
-//   texts = 'this is a test description for some tupe fo delicius food afkljaslfjsl'
-//   cardlist.push({title: titles, text: texts, id: String(i)})
-// }
-
-// let test = new ArrayBuffer(cardlist)
-// console.log(test)
 
 Stack = createStackNavigator()
 
@@ -100,7 +90,6 @@ export class HomeScreen extends Component {
 
 export const styles = StyleSheet.create({
   scrollView: {
-    // backgroundColor: Colors.lighter,
     backgroundColor: null
   },
   body: {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, Icon, TopNavigation } from '@ui-kitten/components';
+import { Text, Icon } from '@ui-kitten/components';
 import { View, StyleSheet, Animated, TouchableHighlight } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 

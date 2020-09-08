@@ -57,7 +57,3 @@ export const AppNavigator = () => (
     <TabNavigator/>
   </NavigationContainer>
 );
-
-// const styles = StyleSheet.create({
-
-// })
