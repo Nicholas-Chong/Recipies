@@ -2,6 +2,16 @@
 
 This project aims to make access to quick and simple (and tasty) recipies easier for all. 
 
+It also happens to be my first attempt at a React-Native app!
+
+## Project Highlights
+
+* Created nearly 10 Functional Components and Class Based Components (whole views and single JSX Elements)
+* Used animations to create a more pleasing UX
+* Implemented navigation management using React-Native Navigation Stacks
+* Integrated a Sqlite database for localised persistant data storage
+* Wrote basic SQL queries to read and write data
+
 ## TODO
 
 * Currently developing an API with a database from which the app will pull recipies from. Eventually, this will be integrated into an explore page.
